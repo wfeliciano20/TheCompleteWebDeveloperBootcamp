@@ -9,13 +9,13 @@ const App = () =>{
         <span>emojipedia</span>
       </h1>
       <dl className="dictionary">
-        {emojipedia.map( entry => {
-          return <Term
+        {emojipedia.map( entry => 
+            <Term
             key = {entry.id}
             emoji = {entry.emoji}
             name = {entry.name}
             meaning = {entry.meaning} />
-        })} 
+        )} 
       </dl>
 
     </div>
