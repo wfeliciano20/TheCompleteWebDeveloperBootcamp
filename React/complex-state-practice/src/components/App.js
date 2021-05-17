@@ -11,25 +11,32 @@ function App() {
     const { name:inputName, value:updatedValue } = event.target;
 
     setContact((previousContact) => {
-      if(inputName === "fName"){
-        return{
-          fName: updatedValue,
-          lName: previousContact.lName,
-          email: previousContact.email
-        };
-      } else if(inputName === "lName"){
-        return {
-          fname: previousContact.fName,
-          lName: updatedValue,
-          email: previousContact.email
-        };
-      } else if(inputName === "email"){
-        return {
-          fname: previousContact.fName,
-          lName: previousContact.lName,
-          email:updatedValue
-        };
-      }
+      return {
+        ...previousContact,
+        [inputName]:updatedValue
+      };
+      // The above code replaces the code bellow
+
+
+      // if(inputName === "fName"){
+      //   return{
+      //     fName: updatedValue,
+      //     lName: previousContact.lName,
+      //     email: previousContact.email
+      //   };
+      // } else if(inputName === "lName"){
+      //   return {
+      //     fname: previousContact.fName,
+      //     lName: updatedValue,
+      //     email: previousContact.email
+      //   };
+      // } else if(inputName === "email"){
+      //   return {
+      //     fname: previousContact.fName,
+      //     lName: previousContact.lName,
+      //     email:updatedValue
+      //   };
+      // }
     });
   }
 
