@@ -5,21 +5,12 @@ import InputArea from "./InputArea";
 
 function App() {
 
-  const [inputText,setInputText] = useState("");
-
   const [todos, setTodos] = useState([]);
 
-  const handleChange = (event) => {
-    const value  = event.target.value;
-
-    setInputText(value);
-  }
-
-  const addTodo = () => {
+  const addTodo = (todo) => {
     setTodos( previousTodos => {
-      return [...previousTodos,inputText];
+      return [...previousTodos,todo];
     });
-    setInputText("");
   }
 
   const deleteTodo = (id) => {
@@ -33,7 +24,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea cliked={addTodo} change={handleChange} input={inputText} />
+      <InputArea cliked={addTodo}  />
       {/* <div className="form">
         <input onChange={handleChange} type="text" value={inputText} />
         <button onClick={addTodo}>
