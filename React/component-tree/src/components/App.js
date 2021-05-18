@@ -18,10 +18,14 @@ function App() {
     setTodos( previousTodos => {
       return [...previousTodos,inputText];
     });
-
     setInputText("");
   }
 
+  const deleteTodo = (id) => {
+        setTodos( previousTodos =>{
+          return previousTodos.filter((item, index) => index !== id)
+        });
+  }
 
   return (
     <div className="container">
@@ -37,7 +41,12 @@ function App() {
       <div>
         <ul>
           {/* {todos.map( todoItem => <li>{todoItem}</li> ) } */}
-          {todos.map( todoItem => <ListItem key={todos.indexOf(todoItem)} value={todoItem} />) }
+          {todos.map( (todoItem, index) => <ListItem 
+          id={index}
+          key={index} 
+          value={todoItem} 
+          onChecked={deleteTodo}  
+          />) }
         </ul>
       </div>
     </div>
